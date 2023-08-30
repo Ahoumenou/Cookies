@@ -20,7 +20,7 @@ session_start();
 setcookie("school", "Highfive", time() + 60*60) ;
 // $_COOKIE est la superglobale permettant d'acceder au  coodie côté client
 /** 
- *  Une suoperglobale une variable pr&(d&finie qui stocke des infos 
+ *  Une suoperglobale une variable pré-définie qui stocke des infos 
  *  et des données importantes accessibles depuis n'importe où dans 
  *  le script PHP sans avoir besoin de la déclarer explicitement comme une variable classique */
 // fonction qui nous dis où sont stochés les sessions côté seveur

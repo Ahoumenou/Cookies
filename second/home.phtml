@@ -12,6 +12,19 @@
 </head>
 
 <body>
+    
+     <?php
+
+     // your file
+     $file = 'image.jpg';
+     
+     $info = pathinfo($file);
+     $file_name =  basename($file,'e.'.$info['extension']);
+     
+     echo $file_name; // outputs 'image'
+     
+     
+    ?>
     <div class="container">
         <!-- 
             L'attribut enctype spécifie comment les données du formulaire doivent être 
@@ -21,13 +34,33 @@
 
 
             Lorsque vous définissez `enctype="multipart/form-data"` , cela signifie que les données 
-            du formulaire seront encodées sous la forme d'un contenuy binaire
+            du formulaire seront encodées sous la forme d'un contenu binaire
             multipart. Ce type d'encodage est utilisé pour les formulaire contenant des --champs de 
             telechargement de fichiers , car il permet de transférer des 
             fichiers binaires, tels que les images , les vidéos, etc..., en plus de données de texte.
          -->
         <form action="server.php" method="post" enctype="multipart/form-data">
+            <a href="download.php?file=img-upload-1693246688.png">Télécharger l'image</a>
+            <!-- Empêcher le chargement des fichiers lourds -->
+            <input type="hidden" name="MAX_FILE_SIZE" value="3000000">
             <div class="mb-3">
+                <p>function header(
+                    string $header,
+                    bool|null $replace = true,
+                    int|null $response_code = 0
+                    ): void
+                    Send a raw HTTP header
+
+                    header() is used to send a raw HTTP header. See the » HTTP/1.1 specification for more information on
+                    HTTP headers.
+
+                    https://www.php.net/manual/function.header.php
+
+                    @param $header: The header string. There are two special-case header calls. The first is a header
+                    that starts with the string " HTTP/" (case is not significant), which will be used to figure out the
+                    HTTP status code to send. For example, if you have configured Apache to use a PHP script to handle
+                    requests for missing files (using the ErrorDocument directive), you may want to make sure that your
+                    script generates the proper status</p>
                 <label for="file" class="form-label"> Importez un fichier</label>
                 <input type="file" class="form-control" name="photo_profile" id="file">
                 <button type="submit" class="btn btn-primary" name="submit">Submit</button>
